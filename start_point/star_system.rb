@@ -9,7 +9,6 @@ class StarSystem
   def planet_names
     planet_names = @planets.map do |planet_element|
       planet_element.name
-
     end
     return planet_names
   end
@@ -20,7 +19,6 @@ class StarSystem
 
   def get_largest_planet
     @planets.max{|big_planet,planet| big_planet.diameter <=> planet.diameter}
-
   end
 
   def get_smallest_planet
@@ -30,6 +28,7 @@ class StarSystem
   def get_planets_with_no_moons
     @planets.find_all{|planets| planets.number_of_moons == 0}
   end
+
   def get_planets_with_more_moons(number)
     number_moon = @planets.find_all{|planets| planets.number_of_moons > number}
     number_moon.map {|planet| planet.name }
