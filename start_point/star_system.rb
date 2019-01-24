@@ -25,7 +25,14 @@ class StarSystem
 
   def get_smallest_planet
     @planets.min{|small_planet,planet| small_planet.diameter <=> planet.diameter}
+  end
 
+  def get_planets_with_no_moons
+    @planets.find_all{|planets| planets.number_of_moons == 0}
+  end
+  def get_planets_with_more_moons(number)
+   number_moon = @planets.find_all{|planets| planets.number_of_moons > number}
+   number_moon.map {|planet| planet.name }
   end
 
 end
